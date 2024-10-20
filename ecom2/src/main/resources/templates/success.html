@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thanh Toán Thành Công</title>
+    <link rel="stylesheet" type="text/css" href="/css/success.css"> <!-- Kết nối tệp CSS -->
+</head>
+<body>
+    <h1>Thông Báo Thanh Toán</h1>
+
+    <p th:text="'Phương thức thanh toán: ' + ${paymentMethod}"></p>
+    <p th:text="${message}"></p>
+
+    <a href="/items">Quay về Trang Chủ</a>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Giỏ Hàng</title>
+    <link rel="stylesheet" type="text/css" href="/css/cart.css"> <!-- Kết nối tệp CSS -->
+</head>
+<body>
+    <h1>Giỏ Hàng của bạn</h1>
+    
+    <div class="cart-container">
+        <div class="cart-item" th:each="item : ${itemsInCart}">
+            <div class="cart-item-left">
+                <img th:src="@{/images/default_images.jpg}" alt="Item Image" class="cart-item-image" />
+            </div>
+            <div class="cart-item-right">
+                <div class="cart-item-name" th:text="${item.name}">Tên Sản Phẩm</div>
+                <div class="cart-item-price" th:text="${item.price} + ' $'">Giá Sản Phẩm</div>
+            </div>
+        </div>
+
+        <div class="cart-total">
+            <strong>Tổng Giá: </strong><span th:text="${totalPrice} + ' $'">0 $</span>
+        </div>
+        
+        <div class="checkout-container">
+            <a href="/items" class="continue-shopping">Tiếp Tục Mua Sắm</a>
+            <a href="/checkout" class="checkout-button">Thanh Toán</a>
+        </div>
+    </div>
+</body>
+</html>

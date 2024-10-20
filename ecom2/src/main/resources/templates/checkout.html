@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thanh Toán</title>
+    <link rel="stylesheet" type="text/css" href="/css/checkout.css"> <!-- Kết nối tệp CSS -->
+</head>
+<body>
+    <h1>Thông Tin Thanh Toán</h1>
+
+    <!-- Hiển thị thông tin người dùng -->
+    <div class="user-info">
+        <h2>Thông Tin Người Dùng</h2>
+        <p><strong>Tên:</strong> <span th:text="${user.name}">Tên Người Dùng</span></p>
+        <p><strong>Email:</strong> <span th:text="${user.email}">email@example.com</span></p>
+        <p><strong>Số Điện Thoại:</strong> <span th:text="${user.phone}">0123456789</span></p>
+        <p><strong>Địa Chỉ:</strong> <span th:text="${user.address}">Địa chỉ</span></p>
+    </div>
+
+    <!-- Hiển thị các sản phẩm trong giỏ hàng -->
+    <div class="checkout-container">
+        <h2>Giỏ Hàng</h2>
+        <div class="checkout-item" th:each="item : ${itemsInCart}">
+            <div class="checkout-item-left">
+                <img th:src="@{/images/default_images.jpg}" alt="Item Image" class="checkout-item-image" />
+            </div>
+            <div class="checkout-item-right">
+                <div class="checkout-item-name" th:text="${item.name}">Tên Sản Phẩm</div>
+                <div class="checkout-item-price" th:text="${item.price} + ' $'">Giá Sản Phẩm</div>
+            </div>
+        </div>
+
+        <div class="checkout-total">
+            <strong>Tổng Giá: </strong><span th:text="${totalPrice} + ' $'">0 $</span>
+        </div>
+    </div>
+
+    <!-- Lựa chọn phương thức thanh toán -->
+    <div class="payment-method">
+        <h2>Chọn Phương Thức Thanh Toán</h2>
+        <form action="/success" method="post">
+            <label>
+                <input type="radio" name="paymentMethod" value="creditCard" required>
+                Thanh Toán Bằng Thẻ
+            </label><br>
+            <label>
+                <input type="radio" name="paymentMethod" value="cashOnDelivery" required>
+                Thanh Toán Khi Nhận Hàng (Tiền Mặt)
+            </label><br>
+            
+            <!-- Nút xác nhận và quay lại giỏ hàng -->
+            <div class="button-group">
+                <button type="submit" class="payment-button">Xác Nhận Thanh Toán</button>
+                <a href="/cart" class="back-button">Quay Lại Giỏ Hàng</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
