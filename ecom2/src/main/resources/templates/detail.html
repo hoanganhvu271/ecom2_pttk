@@ -9,47 +9,57 @@
 <body>
 
     <header>
-        <h1 class="title">Thông Tin Chi Tiết Sản Phẩm</h1>
-        <a th:href="@{/items}" class="back-link">Quay về danh sách sản phẩm</a>
+        <h1 class="title">Chi Tiết Sản Phẩm</h1>
+        <a th:href="@{/items}" class="back-link"><i class="fas fa-arrow-left"></i> Quay về danh sách sản phẩm</a>
     </header>
 
-    <div class="item-detail-container">
-        <!-- Hiển thị hình ảnh của sản phẩm -->
-        <div class="item-images">
-            <img th:src="@{/images/default_images.jpg}" alt="Item Image" class="item-image" />
-        </div>
-
-        <!-- Hiển thị thông tin chi tiết của sản phẩm -->
-        <div class="item-info">
-            <h2 th:text="${item.name}">Tên sản phẩm</h2>
-            <p class="price" th:text="${item.price} + ' $'">Giá: 0$</p>
-            <p class="description" th:text="${item.description}">Mô tả sản phẩm</p>
-            <p class="quantity" th:text="'Số lượng còn lại: ' + ${item.quantity}">Số lượng còn lại: 0</p>
-            <p class="tags">Thẻ: 
-                <span th:each="tag : ${item.tags}" th:text="${tag}" class="item-tag">#tag</span>
-            </p>
-        </div>
-
-        
-    </div>
-
-    
-    <div class="comment-block">
-        <div class="comments-section">
-            <h3>Bình luận</h3>
-            <div class="comment" th:each="comment : ${item.comments}">
-                <p><strong th:text="${comment.customer.name}">Tên khách hàng</strong>: <span th:text="${comment.commentText}">Nội dung bình luận</span></p>
+    <div class="content-wrapper">
+        <div class="item-detail-container">
+            <!-- Hiển thị hình ảnh của sản phẩm -->
+            <div class="item-images">
+                <img th:src="@{/images/default_images.jpg}" alt="Item Image" class="item-image" />
             </div>
-    
-            <h3>Đánh giá</h3>
-            <span th:text="${item.totalRating}">4.5</span>/5
-            <div class="rate" th:each="rate : ${item.rates}">
-                <p><strong th:text="${rate.customer.name}">Tên khách hàng</strong>: 
-                    <span th:text="${rate.rate}">5</span>/5 - 
-                    <span th:text="${rate.rateText}">Nội dung đánh giá</span>
+
+            <!-- Hiển thị thông tin chi tiết của sản phẩm -->
+            <div class="item-info">
+                <h2 th:text="${item.name}">Tên sản phẩm</h2>
+                <p class="price" th:text="${item.price} + ' $'">Giá: 0$</p>
+                <p class="description" th:text="${item.description}">Mô tả sản phẩm</p>
+                <p class="quantity" th:text="'Số lượng còn lại: ' + ${item.quantity}">Số lượng còn lại: 0</p>
+                <p class="tags">Thẻ: 
+                    <span th:each="tag : ${item.tags}" th:text="${tag}" class="item-tag">#tag</span>
                 </p>
             </div>
         </div>
+
+        <!-- Bình luận và đánh giá -->
+        <div class="comment-block">
+            <div class="comments-section">
+                <h3>Bình luận</h3>
+                <div class="comment" th:each="comment : ${item.comments}">
+                    <p><strong th:text="${comment.customer.name}">Tên khách hàng</strong>: <span th:text="${comment.commentText}">Nội dung bình luận</span></p>
+                </div>
+
+                <h3>Đánh giá</h3>
+                <div class="total-rating">
+                    <strong>Đánh giá trung bình: </strong><span th:text="${item.totalRating}">4.5</span>/5
+                </div>
+                <div class="rate" th:each="rate : ${item.rates}">
+                    <p><strong th:text="${rate.customer.name}">Tên khách hàng</strong>: 
+                        <span th:text="${rate.rate}">5</span>/5 - 
+                        <span th:text="${rate.rateText}">Nội dung đánh giá</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <h4>Thêm bình luận mới</h4>
+        <form th:action="@{/items/{id}/comments(id=${item.id})}" method="post">
+            <div class="form-group">
+                <label for="commentText">Bình luận:</label>
+                <textarea id="commentText" name="commentText" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Gửi bình luận</button>
+        </form>
     </div>
 
 </body>

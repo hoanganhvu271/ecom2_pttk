@@ -1,22 +1,29 @@
+/* Tổng quan */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f8f8;
-    margin: 20px;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
 }
 
 header {
     text-align: center;
+    padding: 20px 0;
+    background-color: #007BFF;
+    color: white;
     margin-bottom: 30px;
 }
 
 .title {
     font-size: 32px;
-    color: #333;
+    margin: 0;
 }
 
 .back-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: white;
     text-decoration: none;
-    color: #007BFF;
     font-size: 18px;
 }
 
@@ -24,39 +31,37 @@ header {
     text-decoration: underline;
 }
 
+/* Tổng thể */
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Container chi tiết sản phẩm */
 .item-detail-container {
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
     background-color: white;
     padding: 20px;
-    margin: 20px;
+    margin-bottom: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .item-images {
     flex: 1;
+    text-align: center;
+    margin-right: 20px;
 }
 
 .item-image {
-    width: 100%;
+    max-width: 100%;
     height: auto;
     border-radius: 8px;
-    margin-bottom: 20px;
 }
 
-.other-images {
-    display: flex;
-    justify-content: space-around;
-}
-
-.small-item-image {
-    width: 80px;
-    height: auto;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
+/* Thông tin sản phẩm */
 .item-info {
     flex: 2;
     padding: 20px;
@@ -65,6 +70,7 @@ header {
 .item-info h2 {
     font-size: 28px;
     color: #333;
+    margin-bottom: 10px;
 }
 
 .price {
@@ -74,16 +80,8 @@ header {
     margin-bottom: 20px;
 }
 
-.description {
-    margin-bottom: 20px;
-}
-
-.quantity {
-    margin-bottom: 20px;
-}
-
-.tags {
-    margin-bottom: 20px;
+.description, .quantity, .tags {
+    margin-bottom: 10px;
 }
 
 .item-tag {
@@ -92,24 +90,78 @@ header {
     color: #007BFF;
 }
 
+/* Bình luận và đánh giá */
+.comment-block {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 .comments-section {
-    margin-top: 40px;
+    margin-top: 20px;
+}
+
+.comments-section h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
 }
 
 .comment, .rate {
     margin-bottom: 15px;
 }
 
-.comment-block{
-    display: flex;
-    /* justify-content: space-around; */
-    background-color: white;
-    padding: 20px;
-    /* margin: 20px; */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.total-rating {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
-/* .total-rating {
-    
-} */
+/* Cho các thiết bị di động */
+@media (max-width: 768px) {
+    .item-detail-container {
+        flex-direction: column;
+    }
+
+    .item-images {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .item-info {
+        padding: 0;
+    }
+}
+
+/* Phong cách cho form bình luận */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    font-size: 16px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn-submit {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-submit:hover {
+    background-color: #0056b3;
+}
+

@@ -1,6 +1,7 @@
 package com.ecom.ecom2.dao.item_dao;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.ecom.ecom2.model.comment_model.Comment;
@@ -17,92 +18,57 @@ public class ItemImpl implements ItemDAO {
 
     public ItemImpl() {
 
-        List<Comment> comments = new ArrayList<>();
-        List<Rate> rates = new ArrayList<>();
+// Sample Data
+itemList.add(new Item(1, "Smartphone", "Latest model smartphone", 699.99, 50, 
+    new String[]{"electronics", "gadgets"}, new String[]{"image1.jpg", "image2.jpg"}, 
+    Arrays.asList(new Comment(new Customer(2, "vu", null, null, null), "Great Product")), 
+    new ArrayList<>(), 0.0));
 
-        comments.add(new Comment(new Customer(2,"vu", null, null, null), "Greate Poduct"));
-        comments.add(new Comment(new Customer(3,"vuha12", null, null, null), "Siuuu"));
+itemList.add(new Item(2, "Washing Machine", "Automatic washing machine", 499.99, 30, 
+    new String[]{"home", "appliances"}, new String[]{"image3.jpg", "image4.jpg"}, 
+    Arrays.asList(new Comment(new Customer(3, "vuha12", null, null, null), "Very useful!")), 
+    new ArrayList<>(), 0.0));
 
-        // Sample Data
-        String[] tags1 = {"electronics", "gadgets"};
-        String[] images1 = {"image1.jpg", "image2.jpg"};
-        itemList.add(new Item(1, "Smartphone", "Latest model smartphone", 699.99, 50, tags1, images1, comments, rates, 0.0));
-    
-        String[] tags2 = {"home", "appliances"};
-        String[] images2 = {"image3.jpg", "image4.jpg"};
-        itemList.add(new Item(2, "Washing Machine", "Automatic washing machine", 499.99, 30, tags2, images2, comments, rates, 0.0));
-    
-        String[] tags3 = {"computers", "laptops"};
-        String[] images3 = {"image5.jpg", "image6.jpg"};
-        itemList.add(new Item(3, "Laptop", "High-performance laptop", 1099.99, 20, tags3, images3, comments, rates, 0.0));
-    
-        String[] tags4 = {"electronics", "accessories"};
-        String[] images4 = {"image7.jpg", "image8.jpg"};
-        itemList.add(new Item(4, "Wireless Headphones", "Noise-cancelling headphones", 199.99, 100, tags4, images4, comments, rates, 0.0));
-    
-        String[] tags5 = {"home", "furniture"};
-        String[] images5 = {"image9.jpg", "image10.jpg"};
-        itemList.add(new Item(5, "Dining Table", "Stylish wooden dining table", 399.99, 15, tags5, images5, comments, rates, 0.0));
-    
-        String[] tags6 = {"outdoors", "furniture"};
-        String[] images6 = {"image11.jpg", "image12.jpg"};
-        itemList.add(new Item(6, "Patio Set", "Outdoor patio furniture set", 799.99, 25, tags6, images6, comments, rates, 0.0));
-    
-        String[] tags7 = {"electronics", "accessories"};
-        String[] images7 = {"image13.jpg", "image14.jpg"};
-        itemList.add(new Item(7, "Smartwatch", "Fitness tracking smartwatch", 249.99, 40, tags7, images7, comments, rates, 0.0));
-    
-        String[] tags8 = {"computers", "accessories"};
-        String[] images8 = {"image15.jpg", "image16.jpg"};
-        itemList.add(new Item(8, "Gaming Mouse", "Ergonomic gaming mouse", 79.99, 60, tags8, images8, comments, rates, 0.0));
-    
-        String[] tags9 = {"electronics", "cameras"};
-        String[] images9 = {"image17.jpg", "image18.jpg"};
-        itemList.add(new Item(9, "Digital Camera", "High-resolution digital camera", 499.99, 10, tags9, images9, comments, rates, 0.0));
-    
-        String[] tags10 = {"home", "appliances"};
-        String[] images10 = {"image19.jpg", "image20.jpg"};
-        itemList.add(new Item(10, "Refrigerator", "Energy-efficient refrigerator", 899.99, 5, tags10, images10, comments, rates, 0.0));
-    
-        String[] tags11 = {"electronics", "audio"};
-        String[] images11 = {"image21.jpg", "image22.jpg"};
-        itemList.add(new Item(11, "Bluetooth Speaker", "Portable Bluetooth speaker", 149.99, 80, tags11, images11, comments, rates, 0.0));
-    
-        String[] tags12 = {"computers", "accessories"};
-        String[] images12 = {"image23.jpg", "image24.jpg"};
-        itemList.add(new Item(12, "Mechanical Keyboard", "RGB mechanical keyboard", 119.99, 70, tags12, images12, comments, rates, 0.0));
-    
-        String[] tags13 = {"home", "kitchen"};
-        String[] images13 = {"image25.jpg", "image26.jpg"};
-        itemList.add(new Item(13, "Coffee Maker", "Single-serve coffee maker", 89.99, 45, tags13, images13, comments, rates, 0.0));
-    
-        String[] tags14 = {"outdoors", "sports"};
-        String[] images14 = {"image27.jpg", "image28.jpg"};
-        itemList.add(new Item(14, "Camping Tent", "Waterproof camping tent", 159.99, 30, tags14, images14, comments, rates, 0.0));
-    
-        String[] tags15 = {"electronics", "wearables"};
-        String[] images15 = {"image29.jpg", "image30.jpg"};
-        itemList.add(new Item(15, "Fitness Tracker", "Track your fitness goals", 99.99, 65, tags15, images15, comments, rates, 0.0));
-    
-        String[] tags16 = {"home", "appliances"};
-        String[] images16 = {"image31.jpg", "image32.jpg"};
-        itemList.add(new Item(16, "Air Purifier", "HEPA air purifier", 299.99, 20, tags16, images16, comments, rates, 0.0));
-    
-        String[] tags17 = {"electronics", "computers"};
-        String[] images17 = {"image33.jpg", "image34.jpg"};
-        itemList.add(new Item(17, "External Hard Drive", "2TB external hard drive", 89.99, 50, tags17, images17, comments, rates, 0.0));
-    
-        String[] tags18 = {"home", "kitchen"};
-        String[] images18 = {"image35.jpg", "image36.jpg"};
-        itemList.add(new Item(18, "Blender", "High-speed blender", 79.99, 75, tags18, images18, comments, rates, 0.0));
-    
-        String[] tags19 = {"computers", "accessories"};
-        String[] images19 = {"image37.jpg", "image38.jpg"};
-        itemList.add(new Item(19, "Laptop Stand", "Adjustable laptop stand", 39.99, 120, tags19, images19, comments, rates, 0.0));
-    
-        String[] tags20 = {"home", "furniture"};
-        String[] images20 = {"image39.jpg", "image40.jpg"};
-        itemList.add(new Item(20, "Bookshelf", "Wooden bookshelf", 149.99, 60, tags20, images20, comments, rates, 0.0));
+itemList.add(new Item(3, "Laptop", "High-performance laptop", 1099.99, 20, 
+    new String[]{"computers", "laptops"}, new String[]{"image5.jpg", "image6.jpg"}, 
+    Arrays.asList(new Comment(new Customer(4, "user123", null, null, null), "Amazing speed!")), 
+    new ArrayList<>(), 0.0));
+
+itemList.add(new Item(4, "Wireless Headphones", "Noise-cancelling headphones", 199.99, 100, 
+    new String[]{"electronics", "accessories"}, new String[]{"image7.jpg", "image8.jpg"}, 
+    Arrays.asList(new Comment(new Customer(5, "johndoe", null, null, null), "Crystal clear sound")), 
+    new ArrayList<>(), 0.0));
+
+itemList.add(new Item(5, "Dining Table", "Stylish wooden dining table", 399.99, 15, 
+    new String[]{"home", "furniture"}, new String[]{"image9.jpg", "image10.jpg"}, 
+    Arrays.asList(new Comment(new Customer(6, "janesmith", null, null, null), "Elegant design!")), 
+    new ArrayList<>(), 0.0));
+
+itemList.add(new Item(6, "Patio Set", "Outdoor patio furniture set", 799.99, 25, 
+    new String[]{"outdoors", "furniture"}, new String[]{"image11.jpg", "image12.jpg"}, 
+    Arrays.asList(new Comment(new Customer(7, "outdoorfan", null, null, null), "Great for my garden!")), 
+    new ArrayList<>(), 0.0));
+
+itemList.add(new Item(7, "Smartwatch", "Fitness tracking smartwatch", 249.99, 40, 
+    new String[]{"electronics", "accessories"}, new String[]{"image13.jpg", "image14.jpg"}, 
+    Arrays.asList(new Comment(new Customer(8, "fitguru", null, null, null), "Perfect for tracking workouts!")), 
+    new ArrayList<>(), 0.0));
+
+itemList.add(new Item(8, "Gaming Mouse", "Ergonomic gaming mouse", 79.99, 60, 
+    new String[]{"computers", "accessories"}, new String[]{"image15.jpg", "image16.jpg"}, 
+    Arrays.asList(new Comment(new Customer(9, "gamerboy", null, null, null), "Best mouse for gaming!")), 
+    new ArrayList<>(), 0.0));
+
+itemList.add(new Item(9, "Digital Camera", "High-resolution digital camera", 499.99, 10, 
+    new String[]{"electronics", "cameras"}, new String[]{"image17.jpg", "image18.jpg"}, 
+    Arrays.asList(new Comment(new Customer(10, "shutterbug", null, null, null), "Excellent photo quality")), 
+    new ArrayList<>(), 0.0));
+
+itemList.add(new Item(10, "Refrigerator", "Energy-efficient refrigerator", 899.99, 5, 
+    new String[]{"home", "appliances"}, new String[]{"image19.jpg", "image20.jpg"}, 
+    Arrays.asList(new Comment(new Customer(11, "coolguy", null, null, null), "Keeps everything super fresh!")), 
+    new ArrayList<>(), 0.0));
+
     }
     
 
@@ -164,4 +130,19 @@ public class ItemImpl implements ItemDAO {
     public List<Item> getAllItems() {
         return itemList;
     }
+
+
+    @Override
+public void addCommentToItem(int itemId, Comment comment) {
+    for (Item i : itemList) {
+        if (i.getId() == itemId) {
+            // Chuyển danh sách bình luận sang ArrayList để có thể thêm phần tử
+            List<Comment> comments = new ArrayList<>(i.getComments());
+            comments.add(comment);
+            i.setComments(comments); // Cập nhật lại danh sách comments trong Item
+            System.out.println("Added comment to item with ID: " + itemId);
+        }
+    }
+}
+
 }

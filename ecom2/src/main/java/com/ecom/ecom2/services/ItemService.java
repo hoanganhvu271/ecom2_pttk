@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ecom.ecom2.dao.item_dao.ItemImpl;
+import com.ecom.ecom2.model.comment_model.Comment;
 import com.ecom.ecom2.model.item_model.Item;
 
 import java.util.List;
@@ -27,5 +28,9 @@ public class ItemService {
 
     public Item getItemById(int id){
         return itemImpl.getItemById(id);
+    }
+
+    public void addCommentToItem(int itemId, Comment comment) {
+        itemImpl.addCommentToItem(itemId, comment);
     }
 }

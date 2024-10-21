@@ -2,6 +2,7 @@ package com.ecom.ecom2.dao.item_dao;
 
 import java.util.List;
 
+import com.ecom.ecom2.model.comment_model.Comment;
 import com.ecom.ecom2.model.item_model.Item;
 
 public interface ItemDAO {
@@ -15,4 +16,5 @@ public interface ItemDAO {
     public List<Item> sortByBestSelling();
     public void updatePrice(Item item, double price);
     public void addImage(Item item, String imgUrl);
+    public void addCommentToItem(int itemId, Comment comment);
 }
