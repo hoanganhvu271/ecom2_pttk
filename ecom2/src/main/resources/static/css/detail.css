@@ -1,0 +1,115 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    margin: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.title {
+    font-size: 32px;
+    color: #333;
+}
+
+.back-link {
+    text-decoration: none;
+    color: #007BFF;
+    font-size: 18px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.item-detail-container {
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.item-images {
+    flex: 1;
+}
+
+.item-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.other-images {
+    display: flex;
+    justify-content: space-around;
+}
+
+.small-item-image {
+    width: 80px;
+    height: auto;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.item-info {
+    flex: 2;
+    padding: 20px;
+}
+
+.item-info h2 {
+    font-size: 28px;
+    color: #333;
+}
+
+.price {
+    font-size: 24px;
+    color: #ba1414;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.description {
+    margin-bottom: 20px;
+}
+
+.quantity {
+    margin-bottom: 20px;
+}
+
+.tags {
+    margin-bottom: 20px;
+}
+
+.item-tag {
+    margin-right: 10px;
+    font-style: italic;
+    color: #007BFF;
+}
+
+.comments-section {
+    margin-top: 40px;
+}
+
+.comment, .rate {
+    margin-bottom: 15px;
+}
+
+.comment-block{
+    display: flex;
+    /* justify-content: space-around; */
+    background-color: white;
+    padding: 20px;
+    /* margin: 20px; */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* .total-rating {
+    
+} */

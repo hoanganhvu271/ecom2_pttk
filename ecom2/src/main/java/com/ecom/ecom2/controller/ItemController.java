@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ecom.ecom2.model.item_model.Item;
@@ -23,6 +24,13 @@ public class ItemController {
         List<Item> items = itemService.getAllItems();
         model.addAttribute("items", items);
         return "items";
+    }
+
+   @GetMapping("/items/details/{id}")
+    public String getItem(@PathVariable("id") int id, Model model) {
+        Item item = itemService.getItemById(id);
+        model.addAttribute("item", item);
+        return "detail";
     }
 
     @GetMapping("/search")

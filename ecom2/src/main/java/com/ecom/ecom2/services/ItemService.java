@@ -24,4 +24,8 @@ public class ItemService {
                 .filter(item -> item.getName().toLowerCase().contains(query.toLowerCase()))
                 .collect(Collectors.toList());
     }
+
+    public Item getItemById(int id){
+        return itemImpl.getItemById(id);
+    }
 }

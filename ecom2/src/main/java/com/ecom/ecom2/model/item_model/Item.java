@@ -1,5 +1,10 @@
 package com.ecom.ecom2.model.item_model;
 
+import java.util.List;
+
+import com.ecom.ecom2.model.comment_model.Comment;
+import com.ecom.ecom2.model.rate_model.Rate;
+
 public class Item {
     private int id;
     private String name;
@@ -8,8 +13,12 @@ public class Item {
     private int quantity;
     private String[] tags;
     private String[] images;
+    private List<Comment> comments;
+    private List<Rate> rates;
+    private double totalRating; 
 
-    public Item(int id, String name, String description, double price, int quantity, String[] tags, String[] images) {
+
+    public Item(int id, String name, String description, double price, int quantity, String[] tags, String[] images, List<Comment> comments, List<Rate> rates, double totalRating) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -17,6 +26,9 @@ public class Item {
         this.quantity = quantity;
         this.tags = tags;
         this.images = images;
+        this.comments = comments;
+        this.rates = rates;
+        this.totalRating = totalRating;
     }
 
     public int getId() {
@@ -73,6 +85,30 @@ public class Item {
 
     public void setImages(String[] images) {
         this.images = images;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public List<Rate> getRates() {
+        return rates;
+    }
+
+    public void setRates(List<Rate> rates) {
+        this.rates = rates;
+    }
+
+    public double getTotalRating() {
+        return totalRating;
+    }
+
+    public void setTotalRating(double totalRating) {
+        this.totalRating = totalRating;
     }
 
     
